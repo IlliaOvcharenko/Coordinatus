@@ -1,0 +1,57 @@
+html, body {
+    /*position: absolute;*/
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+main {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    margin-left: 16px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+#canvas {
+    width: 49%;
+    height: 85%;
+    float: left;
+    border-right: 2px dotted #ECEFF1;
+    cursor: pointer;
+}
+#menu {
+    width: 49%;
+    height: 85%;
+    float: right;
+}
+
+button {
+    outline: none;
+    border: 3px solid #000000;
+    font-size: 24px;
+    color: #000000;
+    background: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+}
+button:hover {
+    cursor: pointer;
+    color: #FFFFFF;
+    background: #000000;
+}
+
+#readme_ftr {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #ECEFF1;
+}
