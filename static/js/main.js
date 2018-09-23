@@ -35,7 +35,7 @@ class Coordinates {
     }
 
     // just for fun function
-    chooseColor() {
+     chooseColor() {
         const beautifulColors = [
             '#81C784',
             '#F48FB1',
@@ -150,31 +150,37 @@ function request(url, data) {
     })
 }
 
-function buildJoin(coordinates) {
-    const BUILD_JOIN = '/api/build_join';
-    let sendPoints = request(BUILD_JOIN, coordinates.getJson());
+function buildConvexHull(coordinates) {
+    const BUILD_CONVEX_HULL = '/api/build_convex_hull';
+    let sendPoints = request(BUILD_CONVEX_HULL, coordinates.getJson());
     sendPoints
         .then(function getAnswer(answer) {
-            let points = JSON.parse(answer);
-            coordinates.joinPoints(points);
+            let response = JSON.parse(answer);
+            console.log('BUILD CONVEX HULL');
+            console.log('execution time: ' + response.execution_time);
+            coordinates.joinPoints(response.convex_hull);
         })
         .catch(function onError(err) {
-            console.error('Error during buildJoin()', err);
+            console.error('Error during buildConvexHull()', err);
         });
 }
 
 let c = new Coordinates();
 
 let pointsCounter = document.getElementById('points_counter');
-c.subscribeOnPointsChange(function(points) {
+c.subscribeOnPointsChange((points) => {
     pointsCounter.innerText = points.length;
 });
 
 let clearBtn = document.getElementById('clear_btn');
 clearBtn.onclick = () => c.removePoints();
 
-let buildJoinBtn = document.getElementById('build_join_btn');
-buildJoinBtn.onclick = () => buildJoin(c);
+let buildConvexHullBtn = document.getElementById('build_join_btn');
+buildConvexHullBtn.onclick = () => buildConvexHull(c);
 
 let addRandomBtn = document.getElementById('add_random_btn');
 addRandomBtn.onclick = () => c.addRandomPoints();
+
+let loadBtn = document.getElementById('load_btn');
+
+let saveBtn = document.getElementById('save_btn');

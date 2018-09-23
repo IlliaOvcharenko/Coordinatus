@@ -9,6 +9,9 @@ class Point:
         self.x = x
         self.y = y
 
+    def __str__(self):
+        return "Point(" + str(self.x) + " " + str(self.y) + ")"
+
 
 def dict_to_points(d: [Dict[str, int]]) -> [Point]:
     return [Point(p['x'], p['y']) for p in d]
