@@ -19,4 +19,3 @@ def dict_to_points(d: [Dict[str, int]]) -> [Point]:
 
 def points_to_dict(points: [Point]) -> [Dict[str, int]]:
     return [{'x': p.x, 'y': p.y} for p in points]
-

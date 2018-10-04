@@ -18,7 +18,7 @@ def build_convex_hull():
         points_dict = request.get_json()
         points = dict_to_points(points_dict)
         start_time = time.monotonic()
-        convex_hull = graham_scan(points)
+        convex_hull = jarvis(points)
         end_time = time.monotonic()
 
         response = {
